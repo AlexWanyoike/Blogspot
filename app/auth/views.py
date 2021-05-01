@@ -1,8 +1,14 @@
+from datetime import datetime
 from flask import Flask, render_template, url_for, flash, redirect
-from forms import RegistrationForm, LoginForml_for
+from flask_sqlalchemy import SQLAlchemy
+#from .forms import RegistrationForm, LoginForml_for
+from .forms import RegistrationForm,LoginForm
 from app import app
+from app.models import User, Post
 
-app.config['SECRET_KEY'] = '123456'
+
+
+
 
 posts = [
     {
