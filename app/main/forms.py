@@ -32,3 +32,12 @@ class PostForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     content = TextAreaField('Content', validators=[DataRequired()])
     submit = SubmitField('Post')
+
+class CommentForm(FlaskForm):
+    comment = TextAreaField('Write a comment', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+
+class updateProfile(FlaskForm):
+    bio = TextAreaField('Tell us about yourself',validators = [DataRequired()])
+    submit = SubmitField('Submit') 
