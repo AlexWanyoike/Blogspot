@@ -5,9 +5,8 @@ class Config:
     '''
     General configuration parent class
     '''
-    @staticmethod
-    def init_app(app):
-        pass
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://alex:12345@localhost/blogpost'
+    
 
 
 
