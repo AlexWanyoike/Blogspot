@@ -13,13 +13,14 @@ bootstrap = Bootstrap()
 
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
-login_manager.login_view = 'login'
+login_manager.login_view = 'auth.login'
 
 photos = UploadSet('photos',IMAGES)
 
 def create_app(config_name):
     app = Flask(__name__)
 
+    app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
     app.config.from_object(config_options[config_name])
 
     login_manager.init_app(app)
@@ -36,7 +37,5 @@ def create_app(config_name):
     app.register_blueprint(auth_blueprint, url_prefix='/auth')
     app.register_blueprint(main_blueprint)
 
-  
-    
     return app
 
