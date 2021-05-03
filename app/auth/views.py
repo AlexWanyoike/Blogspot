@@ -6,7 +6,7 @@ from flask import Flask, render_template, url_for, flash, redirect , request , a
 from . import auth
 from .. import db , Bcrypt
 from flask_sqlalchemy import SQLAlchemy
-from .forms import RegistrationForm,LoginForm , UpdateAccountForm , PostForm
+#from .forms import RegistrationForm,LoginForm , UpdateAccountForm , PostForm
 from app.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -25,10 +25,6 @@ posts = [
         'date_posted': 'April 21, 2018'
     }
 ]
-
-
-
-
 
 @auth.route("/register", methods=['GET', 'POST'])
 def register():

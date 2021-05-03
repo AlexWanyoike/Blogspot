@@ -3,10 +3,10 @@ import secrets
 from PIL import Image
 from datetime import datetime
 from flask import Flask, render_template, url_for, flash, redirect , request , abort
-from . import auth
+from . import main
 from .. import db , Bcrypt
 from flask_sqlalchemy import SQLAlchemy
-from .forms import RegistrationForm,LoginForm , UpdateAccountForm , PostForm
+from .forms import UpdateAccountForm , PostForm
 from app.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
 
