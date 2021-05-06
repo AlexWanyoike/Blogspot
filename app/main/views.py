@@ -12,10 +12,10 @@ from flask_login import login_user, current_user, logout_user, login_required
 #from . import markdown2  
 
 
-@main.route("/home")
+@main.route("/")
 def home():
     page = request.args.get('page', 1, type=int)
-    posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=5)
+    posts = Post.query.order_by(Post.date_posted.desc()).all()
     print(posts)
     return render_template('home.html', posts=posts)
     

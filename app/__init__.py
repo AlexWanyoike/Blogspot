@@ -10,7 +10,7 @@ from flask_uploads import IMAGES, UploadSet,configure_uploads
 
 db = SQLAlchemy()
 bootstrap = Bootstrap()
-
+mail = Mail()
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
@@ -20,13 +20,14 @@ photos = UploadSet('photos',IMAGES)
 def create_app(config_name):
     app = Flask(__name__)
 
-    app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
     app.config.from_object(config_options[config_name])
+    app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
+    
 
     login_manager.init_app(app)
     db.init_app(app)
     bootstrap.init_app(app)
-    #mail.init_app(app)
+    mail.init_app(app)
     #simple.init_app(app)
 
     configure_uploads(app,photos)
